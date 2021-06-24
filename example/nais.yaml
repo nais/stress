@@ -1,0 +1,23 @@
+apiVersion: nais.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    team: aura
+  name: stress
+  namespace: aura
+spec:
+  image: ghcr.io/nais/stress:latest
+  replicas:
+    max: 1
+    min: 1
+  env:
+    - name: OPTS
+      value: "--cpu 1"
+  resources:
+    limits:
+      cpu: "1"
+      memory: 512Mi
+    requests:
+      cpu: "1"
+      memory: 256Mi
+
